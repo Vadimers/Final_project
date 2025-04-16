@@ -18,7 +18,6 @@ h2{
     line-height: 48px;
 }
 
-
 .intro-block {
     background-image: url(../images/img-header.jpg);
     padding: 250px 0;
@@ -76,9 +75,8 @@ h2{
     }
 }
 
- /* grid container пераметри мають піти у міксіни, бо ми перевикористовуємо ці параметри */
+/* grid container пераметри мають піти у міксіни, бо ми перевикористовуємо ці параметри */
 .section-gallery{
-   
     display: grid;
     grid-template-columns: repeat(4, calc((100% - 40px) / 4));
     grid-template-rows: repeat(3, 350px);
@@ -165,7 +163,39 @@ h2{
     div:nth-child(9){
         background-image: url("../images/img-seo.png");
     }
-   
+
+    .view-skills {
+        grid-column: 1 / -1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 40px 0;
+        background: none;
+
+        &:after {
+            display: none;
+        }
+
+        .view-skills-btn {
+            padding: 12px 30px;
+            background-color: transparent;
+            color: $color-JapaneseIndigo;
+            border: 2px solid $color-JapaneseIndigo;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            min-width: 200px;
+
+            &:hover {
+                background-color: $color-JapaneseIndigo;
+                color: $color-white;
+            }
+        }
+    }
 }
 
 .dark-bg{
@@ -216,10 +246,7 @@ h2{
     }
 }
 
-
-
 @media (max-width: 992px){
-
     .container{
         width: 100%;
     }
@@ -229,8 +256,8 @@ h2{
     }
 
     .intro-block .intro-btn-block button{
-            width: 200px;
-            height: 50px;
+        width: 200px;
+        height: 50px;
     }
 
     .section-gallery{
@@ -268,14 +295,13 @@ h2{
 }
    
 @media (max-width: 768px){
-
     .intro-block .intro-heading{
         font-size: 30px;
     }
 
     .intro-block .intro-btn-block button{
-            width: 170px;
-            height: 40px;
+        width: 170px;
+        height: 40px;
     }
 
     .section-gallery{
@@ -291,7 +317,6 @@ h2{
         div:nth-child(2){
             grid-column: 2 / 3;
             grid-row: 1 / 3;
-
         }
 
         div:nth-child(3){
@@ -343,16 +368,233 @@ h2{
         width: 100%;
 
        @for $i from 1 through 9 {
-
         div:nth-child(#{$i}){
             grid-row: auto;
             grid-column: auto;
         }
        }
-     }
+    }
 
-   
-   .footer-content{
-    padding: 123px 0 57px;
-   }
+    .footer-content{
+        padding: 123px 0 57px;
+    }
+}   
+
+// Ready Section
+.ready-section {
+    padding: 80px 0;
+    background-color: $color-platinum;
+
+    .ready-content {
+        display: flex;
+        gap: 40px;
+        margin-bottom: 40px;
+
+        .ready-text {
+            flex: 1;
+
+            h2 {
+                font-size: 36px;
+                color: $color-JapaneseIndigo;
+                margin-bottom: 30px;
+                font-family: $header-font;
+                line-height: 1.2;
+            }
+
+            p {
+                margin-bottom: 20px;
+                line-height: 1.6;
+                color: $color-AuroMetalSaurus;
+                font-size: 16px;
+            }
+        }
+
+        .ready-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+        }
+    }
+
+    .subscribe-form {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        align-items: center;
+        margin-top: 40px;
+        padding: 30px;
+        background-color: $color-JapaneseIndigo;
+        border-radius: 4px;
+
+        input {
+            padding: 12px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            width: 250px;
+            background-color: rgba(255, 255, 255, 0.05);
+            color: $color-white;
+            font-size: 16px;
+
+            &::placeholder {
+                color: rgba(255, 255, 255, 0.6);
+            }
+
+            &:focus {
+                outline: none;
+                border-color: $color-Chocolate;
+            }
+        }
+
+        .subscribe-btn {
+            padding: 12px 30px;
+            background-color: $color-Chocolate;
+            color: $color-white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+
+            &:hover {
+                background-color: darken($color-Chocolate, 10%);
+            }
+        }
+    }
+}
+
+// Posts Section
+.posts-section {
+    padding: 80px 0;
+    background-color: $color-white;
+
+    h2 {
+        text-align: center;
+        font-size: 36px;
+        color: $color-JapaneseIndigo;
+        margin-bottom: 50px;
+        font-family: $header-font;
+    }
+
+    .posts-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        margin-bottom: 40px;
+
+        .post-card {
+            background: $color-white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 15px rgba(45, 54, 81, 0.1);
+            transition: transform 0.3s;
+
+            &:hover {
+                transform: translateY(-5px);
+            }
+
+            img {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+            }
+
+            h3 {
+                padding: 20px 20px 10px;
+                font-size: 18px;
+                color: $color-JapaneseIndigo;
+                font-family: $header-font;
+                line-height: 1.3;
+            }
+
+            p {
+                padding: 0 20px 20px;
+                color: $color-AuroMetalSaurus;
+                line-height: 1.5;
+                font-size: 14px;
+            }
+        }
+    }
+
+    .view-all-posts {
+        text-align: center;
+
+        .view-all-btn {
+            padding: 12px 30px;
+            background-color: $color-JapaneseIndigo;
+            color: $color-white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+
+            &:hover {
+                background-color: darken($color-JapaneseIndigo, 10%);
+            }
+        }
+    }
+}
+
+// Responsive styles for new sections
+@media (max-width: 992px) {
+    .posts-section {
+        .posts-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .ready-section {
+        .ready-content {
+            flex-direction: column;
+
+            .ready-image {
+                order: -1;
+            }
+        }
+
+        .subscribe-form {
+            flex-direction: column;
+            padding: 20px;
+
+            input {
+                width: 100%;
+                max-width: 400px;
+            }
+
+            .subscribe-btn {
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .ready-section {
+        padding: 40px 0;
+
+        .ready-content {
+            gap: 30px;
+        }
+    }
+
+    .posts-section {
+        padding: 40px 0;
+
+        .posts-grid {
+            grid-template-columns: 1fr;
+        }
+    }
 }   
